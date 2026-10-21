@@ -1,4 +1,289 @@
 ---
-title: Home
-layout: home
+layout: null
+title: Jakin Haslet | Film Portfolio
+permalink: /
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jakin Haslet — film production student, filmmaker, and storyteller.">
+  <title>Jakin Haslet | Film Portfolio</title>
+  <style>
+    :root {
+      --bg: #080808;
+      --fg: #f4f4f4;
+      --muted: #a4a4a4;
+      --line: #292929;
+      --gutter: clamp(20px, 5vw, 72px);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Courier New", Courier, monospace;
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #bcbcbc; }
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 26px var(--gutter) 18px;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+    .contact { text-align: right; }
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 25px var(--gutter) 30px;
+      border-bottom: 1px solid var(--line);
+    }
+    .wordmark {
+      font-size: clamp(18px, 2.5vw, 30px);
+      letter-spacing: 5px;
+      white-space: nowrap;
+    }
+    nav { display: flex; flex-wrap: wrap; gap: clamp(16px, 3vw, 38px); }
+    nav a, .eyebrow, .project-label, .section-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .showreel {
+      min-height: min(62vw, 620px);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      margin: 0 var(--gutter);
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(ellipse at 50% 44%, rgba(85,85,85,.25), transparent 42%),
+        linear-gradient(135deg, #171717, #050505 65%);
+      text-align: center;
+    }
+    .showreel::before, .project-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(0,0,0,.6));
+      pointer-events: none;
+    }
+    .reel-content { position: relative; z-index: 1; padding: 35px; }
+    .reel-content h1 {
+      margin: 12px 0 22px;
+      font-weight: 400;
+      font-size: clamp(28px, 6vw, 68px);
+      line-height: 1.1;
+      letter-spacing: 5px;
+    }
+    .reel-note { color: #b9b9b9; font-size: 10px; }
+    .play {
+      display: inline-grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      margin-top: 24px;
+      border: 1px solid #777;
+      border-radius: 50%;
+      font-size: 18px;
+    }
+    section { padding: 82px var(--gutter); }
+    .section-label { color: var(--muted); margin: 0 0 28px; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(140px, .7fr) 2fr;
+      gap: 40px;
+      max-width: 1100px;
+    }
+    .about h2 {
+      margin: 0 0 24px;
+      max-width: 850px;
+      font-size: clamp(22px, 3.4vw, 42px);
+      font-weight: 400;
+      line-height: 1.35;
+      letter-spacing: 1px;
+    }
+    .about p { max-width: 790px; color: #c3c3c3; letter-spacing: .4px; }
+    .portfolio { border-top: 1px solid var(--line); }
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .section-heading h2 { margin: 0; font-size: 14px; font-weight: 400; letter-spacing: 4px; }
+    .section-heading span { color: var(--muted); font-size: 10px; }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 48px 22px;
+    }
+    .project { min-width: 0; }
+    .project-image {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: linear-gradient(140deg, #252525, #101010 60%, #1b1b1b);
+      border: 1px solid #222;
+    }
+    .project:nth-child(2) .project-image { background: linear-gradient(145deg, #28251f, #111 62%, #25221c); }
+    .project:nth-child(3) .project-image { background: linear-gradient(145deg, #1c2526, #090b0b 60%, #1a1d1d); }
+    .project:nth-child(4) .project-image { background: linear-gradient(145deg, #292929, #080808 60%, #1e1e1e); }
+    .project-image span { position: relative; z-index: 1; color: #b7b7b7; font-size: 10px; letter-spacing: 4px; text-align: center; padding: 18px; }
+    .project h3 { margin: 16px 0 3px; font-size: 12px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; }
+    .project p { margin: 0; color: var(--muted); font-size: 10px; letter-spacing: 1.5px; }
+    .purpose { border-top: 1px solid var(--line); }
+    .purpose blockquote {
+      margin: 0;
+      max-width: 950px;
+      font-size: clamp(20px, 3vw, 34px);
+      line-height: 1.45;
+      letter-spacing: .4px;
+      font-weight: 400;
+    }
+    .purpose p { max-width: 760px; color: #bdbdbd; letter-spacing: .4px; }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      flex-wrap: wrap;
+      padding: 28px var(--gutter);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+    @media (max-width: 680px) {
+      .topline { padding-top: 18px; }
+      .contact { max-width: 45%; }
+      .masthead { align-items: flex-start; flex-direction: column; }
+      nav { gap: 18px; }
+      .showreel { min-height: 420px; margin: 0; }
+      section { padding-top: 58px; padding-bottom: 58px; }
+      .about-grid { grid-template-columns: 1fr; gap: 8px; }
+      .projects { grid-template-columns: 1fr; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline">
+    <span>Film Production · Northwest University</span>
+    <div class="contact">
+      <a href="mailto:YOUR-EMAIL@example.com">YOUR-EMAIL@example.com</a><br>
+      <span>Available for collaboration</span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <a class="wordmark" href="#top">JAKIN HASLET</a>
+    <nav aria-label="Main navigation">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#purpose">Purpose</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="showreel" aria-label="Introduction">
+      <div class="reel-content">
+        <div class="eyebrow">Filmmaker · Storyteller</div>
+        <h1>STORIES<br>WORTH TELLING.</h1>
+        <div class="reel-note">A portfolio in progress — Northwest University, class of 2028</div>
+        <a class="play" href="#portfolio" aria-label="Explore portfolio">↓</a>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-grid">
+        <p class="section-label">About</p>
+        <div>
+          <h2>I'm Jakin, a film production student drawn to visual storytelling, atmosphere, and stories that connect with people.</h2>
+          <p>
+            My interest in filmmaking started with found-footage experiments with a friend
+            and LEGO stop-motion films made during the pandemic. Those early projects
+            taught me to build a story with whatever was available, keep creating, and
+            work with others to bring an idea to life.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <div class="section-heading">
+        <h2>PORTFOLIO</h2>
+        <span>SELECTED PROJECTS & INTERESTS</span>
+      </div>
+
+      <div class="projects">
+        <article class="project">
+          <a class="project-image" href="#contact" aria-label="Found footage film project">
+            <span>FOUND FOOTAGE<br>SHORT FILM</span>
+          </a>
+          <h3>Found-Footage Film</h3>
+          <p>SHORT FILM · SUSPENSE / THRILLER</p>
+        </article>
+
+        <article class="project">
+          <a class="project-image" href="#contact" aria-label="LEGO stop motion project">
+            <span>LEGO<br>STOP-MOTION</span>
+          </a>
+          <h3>Stop-Motion Stories</h3>
+          <p>ANIMATION · PRACTICAL STORYTELLING</p>
+        </article>
+
+        <article class="project">
+          <a class="project-image" href="#purpose" aria-label="Documentary filmmaking">
+            <span>DOCUMENTARY<br>STORYTELLING</span>
+          </a>
+          <h3>Documentary Film</h3>
+          <p>REAL PEOPLE · REAL STORIES</p>
+        </article>
+
+        <article class="project">
+          <a class="project-image" href="#about" aria-label="Future creative projects">
+            <span>IN DEVELOPMENT<br>MORE TO COME</span>
+          </a>
+          <h3>Future Projects</h3>
+          <p>CINEMATOGRAPHY · COLLABORATION</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="purpose" id="purpose">
+      <p class="section-label">Purpose</p>
+      <blockquote>
+        “I want to use filmmaking to tell meaningful stories, serve others, and reflect the hope I find in Christ.”
+      </blockquote>
+      <p>
+        I'm interested in documentary storytelling and learning from people with
+        different experiences. A planned trip to Cambodia has also strengthened my
+        interest in telling stories with care, humility, and purpose.
+      </p>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <span>JAKIN HASLET · FILM PORTFOLIO</span>
+    <a href="mailto:YOUR-EMAIL@example.com">GET IN TOUCH ↗</a>
+    <span>© 2026</span>
+  </footer>
+</body>
+</html>
