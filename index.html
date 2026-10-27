@@ -134,18 +134,16 @@ permalink: /
       gap: 48px 22px;
     }
     .project { min-width: 0; }
-.project-image img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+.project-image {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(140deg, #252525, #101010 60%, #1b1b1b);
+  border: 1px solid #222;
 }
-
-}
-
-.project-image img {
+    .project-image img {
   position: absolute;
   inset: 0;
   width: 100%;
